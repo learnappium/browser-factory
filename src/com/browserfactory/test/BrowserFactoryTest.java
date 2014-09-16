@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.browserfactory.BrowserFactory;
@@ -25,8 +26,14 @@ public class BrowserFactoryTest {
 	}
 
 	@Test
-	public void test() {
+	public void FirefoxCreated() {
 		_driver = BrowserFactory.GetBrowser("FireFox");
 		Assert.assertEquals(FirefoxDriver.class, _driver.getClass());
+	}
+	
+	@Test
+	public void ChromeCreated() {
+		_driver = BrowserFactory.GetBrowser("Chrome");
+		Assert.assertEquals(ChromeDriver.class, _driver.getClass());
 	}
 }
