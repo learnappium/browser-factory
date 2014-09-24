@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import com.browserfactory.BrowserFactory;
 
@@ -40,5 +41,6 @@ public class BrowserFactoryTest {
 	@Test
 	public void SafariCreated() {
 		_driver = BrowserFactory.GetBrowser("Safari");
+		Assert.assertEquals(SafariDriver.class, _driver.getClass());
 	}
 }
