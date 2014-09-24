@@ -36,4 +36,9 @@ public class BrowserFactoryTest {
 		_driver = BrowserFactory.GetBrowser("Chrome");
 		Assert.assertEquals(ChromeDriver.class, _driver.getClass());
 	}
+	
+	@Test
+	public void SafariCreated() {
+		_driver = BrowserFactory.GetBrowser("Safari");
+	}
 }
