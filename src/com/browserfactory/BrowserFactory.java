@@ -6,6 +6,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import com.opera.core.systems.OperaDriver;
+
 /**
  * @author Seed
  *
@@ -21,6 +23,8 @@ public class BrowserFactory {
 			return getSafariInstance();
 		if(browserName.equals("htmlunit"))
 			return getHtmlUnitInstance();
+		if(browserName.equals("opera"))
+			return getOperaInstance();
 		else
 			return getFFInstance();
 	}
@@ -40,5 +44,9 @@ public class BrowserFactory {
 	
 	private static HtmlUnitDriver getHtmlUnitInstance() {
 		return new HtmlUnitDriver();
+	}
+	
+	private static OperaDriver getOperaInstance() {
+		return new OperaDriver();
 	}
 }
