@@ -11,6 +11,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import com.browserfactory.BrowserFactory;
+import com.opera.core.systems.OperaDriver;
 
 public class BrowserFactoryTest {
 	private WebDriver _driver;
@@ -49,5 +50,11 @@ public class BrowserFactoryTest {
 	public void HtmlUnitCreated() {
 		_driver = BrowserFactory.GetBrowser("HtmlUnit");
 		Assert.assertEquals(HtmlUnitDriver.class, _driver.getClass());
+	}
+	
+	@Test
+	public void OperaCreated() {
+		_driver = BrowserFactory.GetBrowser("Opera");
+		Assert.assertEquals(OperaDriver.class, _driver.getClass());
 	}
 }
