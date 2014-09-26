@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import com.browserfactory.BrowserFactory;
 
@@ -42,5 +43,11 @@ public class BrowserFactoryTest {
 	public void SafariCreated() {
 		_driver = BrowserFactory.GetBrowser("Safari");
 		Assert.assertEquals(SafariDriver.class, _driver.getClass());
+	}
+	
+	@Test
+	public void HtmlUnitCreated() {
+		_driver = BrowserFactory.GetBrowser("HtmlUnit");
+		Assert.assertEquals(HtmlUnitDriver.class, _driver.getClass());
 	}
 }
