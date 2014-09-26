@@ -3,6 +3,7 @@ package com.browserfactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 /**
@@ -16,6 +17,8 @@ public class BrowserFactory {
 			return getChromeInstance();
 		if(browserName.equals("Safari"))
 			return getSafariInstance();
+		if(browserName.equals("HtmlUnit"))
+			return getHtmlUnitInstance();
 		else
 			return getFFInstance();
 	}
@@ -31,5 +34,9 @@ public class BrowserFactory {
 	
 	private static SafariDriver getSafariInstance() {
 		return new SafariDriver();
+	}
+	
+	private static HtmlUnitDriver getHtmlUnitInstance() {
+		return new HtmlUnitDriver();
 	}
 }
