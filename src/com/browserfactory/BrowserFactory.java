@@ -13,11 +13,13 @@ import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory {
 	
 	public static WebDriver GetBrowser(String browserName){
-		if(browserName.equals("Chrome"))
+		browserName = browserName.toLowerCase();
+		
+		if(browserName.equals("chrome"))
 			return getChromeInstance();
-		if(browserName.equals("Safari"))
+		if(browserName.equals("safari"))
 			return getSafariInstance();
-		if(browserName.equals("HtmlUnit"))
+		if(browserName.equals("htmlunit"))
 			return getHtmlUnitInstance();
 		else
 			return getFFInstance();
