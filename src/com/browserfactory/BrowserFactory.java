@@ -4,6 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.safari.SafariDriver;
 
 import com.opera.core.systems.OperaDriver;
@@ -25,6 +27,8 @@ public class BrowserFactory {
 			return getHtmlUnitInstance();
 		if(browserName.equals("opera"))
 			return getOperaInstance();
+		if(browserName.equals("phantomjs"))
+			return getPhantomJSInstance();
 		else
 			return getFFInstance();
 	}
@@ -48,5 +52,10 @@ public class BrowserFactory {
 	
 	private static OperaDriver getOperaInstance() {
 		return new OperaDriver();
+	}
+	
+	private static PhantomJSDriver getPhantomJSInstance() {
+		System.setProperty(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "resources//phantomjs");
+		return new PhantomJSDriver();
 	}
 }
