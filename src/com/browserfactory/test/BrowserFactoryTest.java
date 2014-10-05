@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import com.browserfactory.BrowserFactory;
 import com.opera.core.systems.OperaDriver;
@@ -56,5 +57,11 @@ public class BrowserFactoryTest {
 	public void OperaCreated() {
 		_driver = BrowserFactory.GetBrowser("Opera");
 		Assert.assertEquals(OperaDriver.class, _driver.getClass());
+	}
+	
+	@Test
+	public void PhantomJSDriver() {
+		_driver = BrowserFactory.GetBrowser("PhantomJS");
+		Assert.assertEquals(_driver.getClass(), PhantomJSDriver.class);
 	}
 }
