@@ -33,3 +33,6 @@ local.properties
 
 # testng
 test-output/
+
+# log files
+phantomjsdriver.log
