@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -32,31 +33,31 @@ public class BrowserFactoryTest {
 	@Test
 	public void FirefoxCreated() {
 		_driver = BrowserFactory.GetBrowser("FireFox");
-		Assert.assertEquals(FirefoxDriver.class, _driver.getClass());
+		Assert.assertEquals(_driver.getClass(), FirefoxDriver.class);
 	}
 	
 	@Test
 	public void ChromeCreated() {
 		_driver = BrowserFactory.GetBrowser("Chrome");
-		Assert.assertEquals(ChromeDriver.class, _driver.getClass());
+		Assert.assertEquals(_driver.getClass(), ChromeDriver.class);
 	}
 	
 	@Test
 	public void SafariCreated() {
 		_driver = BrowserFactory.GetBrowser("Safari");
-		Assert.assertEquals(SafariDriver.class, _driver.getClass());
+		Assert.assertEquals(_driver.getClass(), SafariDriver.class);
 	}
 	
 	@Test
 	public void HtmlUnitCreated() {
 		_driver = BrowserFactory.GetBrowser("HtmlUnit");
-		Assert.assertEquals(HtmlUnitDriver.class, _driver.getClass());
+		Assert.assertEquals(_driver.getClass(), HtmlUnitDriver.class);
 	}
 	
 	@Test
 	public void OperaCreated() {
 		_driver = BrowserFactory.GetBrowser("Opera");
-		Assert.assertEquals(OperaDriver.class, _driver.getClass());
+		Assert.assertEquals(_driver.getClass(), OperaDriver.class);
 	}
 	
 	@Test
