@@ -1,11 +1,15 @@
 package com.browserfactory;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import com.opera.core.systems.OperaDriver;
@@ -16,7 +20,7 @@ import com.opera.core.systems.OperaDriver;
  */
 public class BrowserFactory {
 	
-	public static WebDriver GetBrowser(String browserName){
+	public static WebDriver GetBrowser(String browserName) {
 		browserName = browserName.toLowerCase();
 		
 		if(browserName.equals("chrome"))
@@ -32,7 +36,25 @@ public class BrowserFactory {
 		else
 			return getFFInstance();
 	}
-	
+
+    public static RemoteWebDriver GetRemoteBrowser(String browserName) {
+        DesiredCapabilities capabillities = null;
+        RemoteWebDriver driver = null;
+        
+        switch (browserName) {
+        	case "firefox":
+        		capabillities = DesiredCapabilities.firefox();
+        		break;
+        	default:
+        }
+        
+        capabillities.setJavascriptEnabled(true);
+        driver = new RemoteWebDriver(capabillities);
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return driver;
+    }
+    
 	private static FirefoxDriver getFFInstance() {
 		return new FirefoxDriver();
 	}
